@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Dembe Events & Hire</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:#f5f5f5;
+      color:#222;
+    }
+
+    header{
+      background:#fff;
+      padding:20px 60px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      border-bottom:1px solid #ddd;
+    }
+
+    .logo{
+      font-size:36px;
+      font-weight:bold;
+      color:#111;
+    }
+
+    .logo span{
+      color:#d4a017;
+    }
+
+    .search-box{
+      width:40%;
+    }
+
+    .search-box input{
+      width:100%;
+      padding:12px;
+      border:1px solid #ccc;
+      border-radius:8px;
+      font-size:16px;
+    }
+
+    .contact{
+      font-weight:bold;
+    }
+
+    nav{
+      background:#fff;
+      padding:15px 60px;
+      display:flex;
+      gap:35px;
+      border-bottom:1px solid #ddd;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:#333;
+      font-weight:600;
+    }
+
+    nav a:hover{
+      color:#d4a017;
+    }
+
+    .hero{
+      height:500px;
+      background:url('https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1600&auto=format&fit=crop') center/cover;
+      display:flex;
+      align-items:center;
+      padding:80px;
+      position:relative;
+      color:white;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.45);
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:1;
+      max-width:600px;
+    }
+
+    .hero h1{
+      font-size:58px;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      font-size:22px;
+      margin-bottom:25px;
+      line-height:1.5;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 28px;
+      background:#d4a017;
+      color:white;
+      text-decoration:none;
+      border-radius:8px;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background:#b8860b;
+    }
+
+    .features{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+      padding:40px 60px;
+    }
+
+    .feature-box{
+      background:white;
+      padding:30px;
+      border-radius:12px;
+      text-align:center;
+      box-shadow:0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .feature-box h3{
+      margin-bottom:12px;
+    }
+
+    .section{
+      padding:40px 60px;
+    }
+
+    .section h2{
+      font-size:36px;
+      margin-bottom:25px;
+    }
+
+    .products{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:25px;
+    }
+
+    .product-card{
+      background:white;
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 2px 10px rgba(0,0,0,0.08);
+      transition:0.3s;
+    }
+
+    .product-card:hover{
+      transform:translateY(-5px);
+    }
+
+    .product-card img{
+      width:100%;
+      height:250px;
+      object-fit:cover;
+    }
+
+    .product-info{
+      padding:20px;
+    }
+
+    .product-info h3{
+      margin-bottom:10px;
+    }
+
+    .price{
+      color:#d4a017;
+      font-size:20px;
+      font-weight:bold;
+      margin-bottom:15px;
+    }
+
+    .categories{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+    }
+
+    .category{
+      position:relative;
+      overflow:hidden;
+      border-radius:12px;
+    }
+
+    .category img{
+      width:100%;
+      height:250px;
+      object-fit:cover;
+    }
+
+    .category h3{
+      position:absolute;
+      bottom:20px;
+      left:20px;
+      color:white;
+      font-size:28px;
+      text-shadow:0 2px 10px rgba(0,0,0,0.6);
+    }
+
+    .banner{
+      margin:40px 60px;
+      height:320px;
+      border-radius:16px;
+      background:url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1600&auto=format&fit=crop') center/cover;
+      display:flex;
+      align-items:center;
+      padding:60px;
+      position:relative;
+      color:white;
+    }
+
+    .banner::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.45);
+      border-radius:16px;
+    }
+
+    .banner-content{
+      position:relative;
+      z-index:1;
+    }
+
+    .banner h2{
+      font-size:50px;
+      margin-bottom:15px;
+    }
+
+    footer{
+      background:#111;
+      color:white;
+      text-align:center;
+      padding:25px;
+      margin-top:50px;
+    }
+
+    @media(max-width:768px){
+
+      header{
+        flex-direction:column;
+        gap:20px;
+      }
+
+      .search-box{
+        width:100%;
+      }
+
+      nav{
+        flex-wrap:wrap;
+      }
+
+      .hero{
+        height:420px;
+        padding:40px;
+      }
+
+      .hero h1{
+        font-size:42px;
+      }
+
+      .banner h2{
+        font-size:38px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <header>
+
+    <div class="logo">
+      Dembe <span>Events & Hire</span>
+    </div>
+
+    <div class="search-box">
+      <input type="text" placeholder="Search services...">
+    </div>
+
+    <div class="contact">
+      Call: +27 71 234 5678
+    </div>
+
+  </header>
+
+  <nav>
+
+    <a href="#">Home</a>
+    <a href="#">Services</a>
+    <a href="#">Equipment</a>
+    <a href="#">Bookings</a>
+    <a href="#">Gallery</a>
+    <a href="#">Contact</a>
+
+  </nav>
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <h1>Reliable Event Hire Services</h1>
+
+      <p>
+        Mobile fridges, portable toilets, tents, chairs and
+        professional event equipment for every occasion.
+      </p>
+
+      <a href="#" class="btn">BOOK NOW</a>
+
+    </div>
+
+  </section>
+
+  <section class="features">
+
+    <div class="feature-box">
+      <h3>Fast Delivery</h3>
+      <p>Quick setup and delivery across Limpopo.</p>
+    </div>
+
+    <div class="feature-box">
+      <h3>Affordable Prices</h3>
+      <p>Quality services at competitive prices.</p>
+    </div>
+
+    <div class="feature-box">
+      <h3>Professional Service</h3>
+      <p>Reliable team for all events and functions.</p>
+    </div>
+
+  </section>
+
+  <section class="section">
+
+    <h2>Popular Hire Services</h2>
+
+    <div class="products">
+
+      <div class="product-card">
+
+        <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=800&auto=format&fit=crop">
+
+        <div class="product-info">
+
+          <h3>Tent Hire</h3>
+
+          <div class="price">From R2 500</div>
+
+          <a href="#" class="btn">Book Now</a>
+
+        </div>
+
+      </div>
+
+      <div class="product-card">
+
+        <img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=800&auto=format&fit=crop">
+
+        <div class="product-info">
+
+          <h3>Mobile Fridge Hire</h3>
+
+          <div class="price">From R1 800</div>
+
+          <a href="#" class="btn">Book Now</a>
+
+        </div>
+
+      </div>
+
+      <div class="product-card">
+
+        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=800&auto=format&fit=crop">
+
+        <div class="product-info">
+
+          <h3>Sound System Hire</h3>
+
+          <div class="price">From R3 000</div>
+
+          <a href="#" class="btn">Book Now</a>
+
+        </div>
+
+      </div>
+
+      <div class="product-card">
+
+        <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=800&auto=format&fit=crop">
+
+        <div class="product-info">
+
+          <h3>Chair & Table Hire</h3>
+
+          <div class="price">From R15 each</div>
+
+          <a href="#" class="btn">Book Now</a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="section">
+
+    <h2>Event Categories</h2>
+
+    <div class="categories">
+
+      <div class="category">
+
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop">
+
+        <h3>Weddings</h3>
+
+      </div>
+
+      <div class="category">
+
+        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=800&auto=format&fit=crop">
+
+        <h3>Parties</h3>
+
+      </div>
+
+      <div class="category">
+
+        <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=800&auto=format&fit=crop">
+
+        <h3>Corporate Events</h3>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="banner">
+
+    <div class="banner-content">
+
+      <h2>Weekend Event Specials</h2>
+
+      <p>Get discounts on selected hire packages this month.</p>
+
+      <br>
+
+      <a href="#" class="btn">VIEW DEALS</a>
+
+    </div>
+
+  </section>
+
+  <footer>
+
+    <p>
+      © 2026 Dembe Events & Hire | Thohoyandou, Limpopo
+    </p>
+
+  </footer>
+
+</body>
+</html>
